@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Android Assaignment</string>
+    <string name="string_splash">Telstra-Android Assaignment</string>
+    <string name="string_internet">No internet available, Please connect to proper internet</string>
+    <string name="data_refreshed">Data Refreshed</string>
+    <string name="no_data_available">No Data Available</string>
+</resources>

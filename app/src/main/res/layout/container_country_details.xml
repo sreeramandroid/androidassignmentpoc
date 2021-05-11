@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
++
+    <data>
+
+        <variable
+            name="bindadapter"
+            type="com.poc.androidassignment.fragments.BindingCustomDependencies" />
+
+        <variable
+            name="dataModel"
+            type="com.poc.androidassignment.model.Row" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        style="@style/cardviewstyle"
+        android:layout_margin="5dp"
+        app:cardBackgroundColor="@color/white"
+        app:cardCornerRadius="5dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/spalsh_font">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvTitle"
+                style="@style/txttitlestyle"
+                android:text="@{dataModel.title ?? `-----`}"
+                app:layout_constraintBottom_toTopOf="@id/tvDescription"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvDescription"
+                style="@style/txtdescription"
+                android:text="@{dataModel.description ?? `-----`}"
+                app:layout_constraintBottom_toBottomOf="@id/ivAvatar"
+                app:layout_constraintEnd_toStartOf="@id/ivAvatar"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvTitle" />
+
+            <ImageView
+                android:id="@+id/ivAvatar"
+                style="@style/imgref"
+                android:src="@mipmap/icn_sidearrow"
+                app:image_url="@{dataModel.imageHref ?? `http://icons.iconarchive.com/icons/iconshock/alaska/256/Igloo-icon.png` }"
+                app:layout_constraintEnd_toEndOf="@id/ivarrow"
+                app:layout_constraintStart_toEndOf="@id/tvDescription"
+                app:layout_constraintTop_toBottomOf="@id/tvTitle" />
+
+
+            <ImageView
+                android:id="@+id/ivarrow"
+                style="@style/imgarrow"
+                android:src="@mipmap/icn_sidearrow"
+                app:layout_constraintBottom_toBottomOf="@id/ivAvatar"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/ivAvatar"
+                app:layout_constraintTop_toBottomOf="@id/tvTitle" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+</layout>

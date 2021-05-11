@@ -1,0 +1,99 @@
+<resources>
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="customrecyclerviewstyle">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">0dp</item>
+        <item name="layout_constraintRight_toRightOf">parent</item>
+        <item name="layout_constraintEnd_toEndOf">parent</item>
+        <item name="layout_constraintStart_toStartOf">parent</item>
+        <item name="layout_constraintTop_toTopOf">parent</item>
+    </style>
+
+    <style name="progressbarstyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="layout_constraintBottom_toBottomOf">parent</item>
+        <item name="layout_constraintLeft_toLeftOf">parent</item>
+        <item name="layout_constraintRight_toRightOf">parent</item>
+        <item name="layout_constraintTop_toTopOf">parent</item>
+    </style>
+
+    <style name="nodataavailablestyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">@dimen/spalsh_font</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="layout_constraintBottom_toBottomOf">parent</item>
+        <item name="layout_constraintLeft_toLeftOf">parent</item>
+        <item name="layout_constraintRight_toRightOf">parent</item>
+        <item name="layout_constraintTop_toTopOf">parent</item>
+    </style>
+
+    <style name="swiperefreshstyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+    </style>
+
+    <style name="constraintlayoutstyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="background">@android:color/white</item>
+    </style>
+
+    <style name="imgarrow">
+        <item name="android:layout_width">@dimen/img_sze</item>
+        <item name="android:layout_height">@dimen/img_sze</item>
+    </style>
+
+    <style name="imgref">
+        <item name="android:layout_width">@dimen/img_sze_onetwenty</item>
+        <item name="android:layout_height">@dimen/img_sze_eighty</item>
+    </style>
+
+    <style name="txtdescription">
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:layout_width">@dimen/img_sze_zero</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="txttitlestyle">
+        <item name="android:textColor">@color/colorAccent</item>
+        <item name="android:textSize">@dimen/spalsh_font</item>
+        <item name="android:layout_width">@dimen/img_sze_zero</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="cardviewstyle">
+        <item name="android:layout_margin">@dimen/img_sze_zero</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="spalshbg">
+        <item name="android:background">@color/colorPrimary</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+    </style>
+
+    <style name="containerstyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+    </style>
+
+    <style name="splashtextstyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:text">@string/string_splash</item>
+        <item name="android:textSize">@dimen/spalsh_font</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+</resources>
