@@ -37,8 +37,8 @@ fun setDataList(recyclerView: RecyclerView, countryDataList: List<Row>?) {
         recyclerView.adapter as? CountryDataDetailsAdapter // getting null in this line.
     countryAdapter?.apply {
         if (countryDataList != null) {
-            _arrayCountryData.clear()
-            _arrayCountryData.addAll(countryDataList)
+            arrayCountryData.clear()
+            arrayCountryData.addAll(countryDataList)
             notifyDataSetChanged()
         }
     }

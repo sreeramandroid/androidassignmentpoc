@@ -22,7 +22,7 @@ class LiveDataFragment : Fragment() {
 
     private lateinit var viewModel: HomeViewModel
     var networkUtils: NetworkUtils = NetworkUtils()
-    var isSwipe = false;
+    private var isSwipe = false
 
     /**
      * function to initialise view models and network
@@ -128,13 +128,13 @@ class LiveDataFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         val fragmentLiveDataBinding: FragmentLivedataBinding =
             DataBindingUtil.inflate(inflater, R.layout.fragment_livedata, container, false)
         refreshList()
         val objCustomListeners = object : BindingCustomDependencies {
             override fun getcountryListAdapter(): CountryDataDetailsAdapter =
-                CountryDataDetailsAdapter(requireContext())
+                CountryDataDetailsAdapter()
 
             override fun getLayoutManager(): LinearLayoutManager =
                 LinearLayoutManager(requireContext())

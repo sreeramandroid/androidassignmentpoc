@@ -20,8 +20,8 @@ class HomeViewModel(application: Application) :
     var countryResponseData = MutableLiveData<List<Row>>()
 
 
-    var dataRepository = RetrofitDataRepository()
-    var databaseRepository = DatabaseRepository()
+    private var dataRepository = RetrofitDataRepository()
+    private var databaseRepository = DatabaseRepository()
     var isProgessDisplay = MutableLiveData<Boolean>()
     var strTitle = MutableLiveData<String>()
 

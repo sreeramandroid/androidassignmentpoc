@@ -1,18 +1,15 @@
 package com.poc.androidassignment.adapters
 
-import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.poc.androidassignment.databinding.ContainerCountryDetailsBinding
-import com.poc.androidassignment.model.CountryDetails
 import com.poc.androidassignment.model.Row
-import com.poc.androidassignment.viewmodel.HomeViewModel
 
-class CountryDataDetailsAdapter(private val _context: Context) :
+class CountryDataDetailsAdapter() :
     RecyclerView.Adapter<CountryDataDetailsAdapter.CountryDetailViewHolder>() {
 
-    val _arrayCountryData: ArrayList<Row> = ArrayList()
+    val arrayCountryData: ArrayList<Row> = ArrayList()
 
 
     inner class CountryDetailViewHolder(val binding: ContainerCountryDetailsBinding) :
@@ -29,14 +26,14 @@ class CountryDataDetailsAdapter(private val _context: Context) :
         )
     }
 
-    override fun getItemCount() = _arrayCountryData.size
+    override fun getItemCount() = arrayCountryData.size
 
     /****
      * Consuming Data and bind to views in onBindViewHolder
      * ******/
 
     override fun onBindViewHolder(holder: CountryDetailViewHolder, position: Int) {
-        val _countryDetail = _arrayCountryData.get(position)
-        holder.binding.dataModel = _countryDetail
+        val countryDetail = arrayCountryData[position]
+        holder.binding.dataModel = countryDetail
     }
 }
