@@ -25,13 +25,11 @@ class MainActivity : AppCompatActivity() {
     /**
      * function for replace fragment
      * ****/
-    private fun replaceFragment(fragment: Fragment) {
-        val fragmentTransaction = supportFragmentManager.beginTransaction()
-        fragmentTransaction.replace(R.id.fragmentContainer, fragment)
-        fragmentTransaction.commit()
-    }
-
     private fun initFramgmentData(firstFragment: LiveDataFragment) {
-        replaceFragment(firstFragment)
+        supportFragmentManager.beginTransaction()
+            .apply {
+                replace(R.id.fragmentContainer, firstFragment)
+                commit()
+            }
     }
 }

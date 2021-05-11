@@ -1,6 +1,5 @@
 package com.poc.androidassignment.custombinding
 
-import android.graphics.drawable.Drawable
 import android.widget.ImageView
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
@@ -32,7 +31,6 @@ fun setConfigAdapter(
  * anotation for setting arraylist
  * ***/
 
-
 @BindingAdapter("data_list")
 fun setDataList(recyclerView: RecyclerView, countryDataList: List<Row>?) {
     val countryAdapter =
@@ -46,7 +44,10 @@ fun setDataList(recyclerView: RecyclerView, countryDataList: List<Row>?) {
     }
 }
 
-
+/***
+ *
+ * loading the image from url
+ * ***/
 @BindingAdapter("image_url")
 fun glide(view: ImageView, mValurl: String?) {
     if (!mValurl.isNullOrEmpty()) {
@@ -59,18 +60,9 @@ fun glide(view: ImageView, mValurl: String?) {
                 .build()
         )
         Glide.with(view.context)
-            .load(glideUrl)
+            .load(glideUrl).error(R.drawable.no_camera_img)
             .into(view);
-    }
-
-    @BindingAdapter("image", "imageplaceholder")
-    fun setImage(image: ImageView, url: String?, placeHolder: Drawable) {
-        if (!url.isNullOrEmpty()) {
-            Glide.with(image.context).load(url).centerCrop()
-                .placeholder(R.drawable.ic_launcher_background)
-                .into(image)
-        } else {
-            image.setImageDrawable(placeHolder)
-        }
+    } else {
+        view.setImageResource(R.drawable.no_camera_img)
     }
 }

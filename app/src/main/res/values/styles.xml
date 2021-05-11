@@ -49,8 +49,8 @@
     </style>
 
     <style name="imgarrow">
-        <item name="android:layout_width">@dimen/img_sze</item>
-        <item name="android:layout_height">@dimen/img_sze</item>
+        <item name="android:layout_width">@dimen/img_sze_medium</item>
+        <item name="android:layout_height">@dimen/img_sze_medium</item>
     </style>
 
     <style name="imgref">

@@ -22,6 +22,7 @@ class LiveDataFragment : Fragment() {
 
     private lateinit var viewModel: HomeViewModel
     var networkUtils: NetworkUtils = NetworkUtils()
+    var isSwipe = false;
 
     /**
      * function to initialise view models and network
@@ -32,7 +33,13 @@ class LiveDataFragment : Fragment() {
         viewModel.isProgessDisplay.observe(viewLifecycleOwner, {
             it?.let { loader ->
                 if (loader) {
-                    loadingprogress.visibility = View.VISIBLE
+                    if (!isSwipe) {
+                        loadingprogress.visibility = View.VISIBLE
+                    } else {
+                        isSwipe = false
+                        loadingprogress.visibility = View.GONE
+                    }
+
                 } else {
                     loadingprogress.visibility = View.GONE
                 }
@@ -61,6 +68,7 @@ class LiveDataFragment : Fragment() {
      * ****/
     fun refreshList() {
         swipeToRefresh?.setOnRefreshListener {
+            isSwipe = true
             if (networkUtils.isOnline(requireContext())) {
                 viewModel.makeApiCall()
                 Toast.makeText(requireContext(), R.string.data_refreshed, Toast.LENGTH_SHORT).show()
@@ -126,7 +134,7 @@ class LiveDataFragment : Fragment() {
         refreshList()
         val objCustomListeners = object : BindingCustomDependencies {
             override fun getcountryListAdapter(): CountryDataDetailsAdapter =
-                CountryDataDetailsAdapter(requireContext(), viewModel)
+                CountryDataDetailsAdapter(requireContext())
 
             override fun getLayoutManager(): LinearLayoutManager =
                 LinearLayoutManager(requireContext())

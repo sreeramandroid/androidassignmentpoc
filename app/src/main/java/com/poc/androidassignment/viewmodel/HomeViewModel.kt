@@ -3,9 +3,9 @@ package com.poc.androidassignment.viewmodel
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
-import com.poc.androidassignment.dbutils.AppDB
 import com.poc.androidassignment.model.CountryDetails
 import com.poc.androidassignment.model.Row
+import com.poc.androidassignment.repository.DatabaseRepository
 import com.poc.androidassignment.repository.RetrofitDataRepository
 import com.poc.androidassignment.utils.setStringPreferenceAsynchronous
 import io.reactivex.Observer
@@ -20,33 +20,15 @@ class HomeViewModel(application: Application) :
     var countryResponseData = MutableLiveData<List<Row>>()
 
 
-    lateinit var allUsers: MutableLiveData<List<Row>>
-
-
     var dataRepository = RetrofitDataRepository()
-    var countryListRx: MutableLiveData<CountryDetails>
+    var databaseRepository = DatabaseRepository()
     var isProgessDisplay = MutableLiveData<Boolean>()
     var strTitle = MutableLiveData<String>()
 
-    init {
-        allUsers = MutableLiveData()
-        countryListRx = MutableLiveData()
-    }
 
     fun gerAllUsers() {
-        val userDao = AppDB.getAppDatabase((getApplication()))?.userDao()
-        val list = userDao?.getAllUserInfo()
+        val list = databaseRepository.fetchUsersFromDb(getApplication())
         countryResponseData.postValue(list)
-    }
-
-    /**
-     * Adding data to db
-     *
-     ****/
-    fun addData(user: List<Row>) {
-        val userDao = AppDB.getAppDatabase((getApplication()))?.userDao()
-        userDao?.deleteUser(user)
-        userDao?.saveUserData(user)
     }
 
 
@@ -61,14 +43,12 @@ class HomeViewModel(application: Application) :
             }
 
             override fun onNext(t: CountryDetails) {
-                var dbref = AppDB.getAppDatabase((getApplication()))?.userDao()
-                val list = dbref?.getAllUserInfo()
                 getApplication<Application>().applicationContext.setStringPreferenceAsynchronous(
                     "title",
                     t.title
                 )
-                dbref?.deleteUser(list)
-                addData(t.rows)
+                databaseRepository.deleteDbList(getApplication())
+                databaseRepository.addData(getApplication(), t.rows)
                 countryResponseData.postValue(t.rows)
                 strTitle.postValue(t.title)
             }

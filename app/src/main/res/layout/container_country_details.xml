@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-+
+
     <data>
 
         <variable
@@ -47,8 +47,8 @@
             <ImageView
                 android:id="@+id/ivAvatar"
                 style="@style/imgref"
-                android:src="@mipmap/icn_sidearrow"
-                app:image_url="@{dataModel.imageHref ?? `http://icons.iconarchive.com/icons/iconshock/alaska/256/Igloo-icon.png` }"
+                android:src="@drawable/no_camera_img"
+                app:image_url="@{dataModel.imageHref}"
                 app:layout_constraintEnd_toEndOf="@id/ivarrow"
                 app:layout_constraintStart_toEndOf="@id/tvDescription"
                 app:layout_constraintTop_toBottomOf="@id/tvTitle" />
