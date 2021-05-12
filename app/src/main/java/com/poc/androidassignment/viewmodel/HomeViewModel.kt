@@ -50,7 +50,7 @@ class HomeViewModel(application: Application) :
                 databaseRepository.deleteDbList(getApplication())
                 databaseRepository.addData(getApplication(), t.rows)
                 countryResponseData.postValue(t.rows)
-                strTitle.postValue(t.title)
+                strTitle.postValue(t.title?:"")
             }
 
             override fun onError(e: Throwable) {

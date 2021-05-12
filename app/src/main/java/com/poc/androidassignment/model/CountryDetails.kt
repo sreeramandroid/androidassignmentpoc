@@ -5,7 +5,7 @@ import androidx.room.PrimaryKey
 
 data class CountryDetails(
     val rows: List<Row>,
-    val title: String?
+    val title: String?=null
 )
 
 @Entity(tableName = "userInfo")
