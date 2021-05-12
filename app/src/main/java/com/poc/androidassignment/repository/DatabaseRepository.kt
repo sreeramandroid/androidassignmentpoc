@@ -29,9 +29,6 @@ class DatabaseRepository {
     }
 
 }
-/**
- * Adding data to db
- *
- ****/
+
 
 
