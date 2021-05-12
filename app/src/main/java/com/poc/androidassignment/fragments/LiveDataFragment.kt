@@ -99,7 +99,7 @@ class LiveDataFragment : Fragment() {
     /**
      * function to display progress
      * ***/
-    private fun displayProgress() {
+     fun displayProgress() {
         if (!networkUtils.isOnline(requireContext())) {
             loadingprogress.visibility = View.GONE
         }
@@ -108,7 +108,7 @@ class LiveDataFragment : Fragment() {
     /**
      *function to display no data
      * ***/
-    private fun visibleNodataText() {
+     fun visibleNodataText() {
         viewModel.countryResponseData.observe(viewLifecycleOwner, {
             it?.let { data ->
                 if (data.isEmpty()) {
