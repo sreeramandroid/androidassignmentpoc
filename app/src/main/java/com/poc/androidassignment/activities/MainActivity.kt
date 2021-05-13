@@ -14,7 +14,6 @@ class MainActivity : AppCompatActivity() {
             DataBindingUtil.setContentView(this, R.layout.activity_main)
         val firstFragment = LiveDataFragment()
         initFragmentData(firstFragment)
-        //initNullReferences()
         with(binding) {
             lifecycleOwner = this@MainActivity
         }
