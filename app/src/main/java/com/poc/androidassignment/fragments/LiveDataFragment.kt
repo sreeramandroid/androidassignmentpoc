@@ -22,7 +22,7 @@ import kotlinx.android.synthetic.main.fragment_livedata.*
 class LiveDataFragment : Fragment() {
 
     @VisibleForTesting(otherwise = VisibleForTesting.PRIVATE)
-    var viewModel: HomeViewModel=ViewModelProvider(this).get(HomeViewModel::class.java)
+    lateinit var viewModel: HomeViewModel
 
     var networkUtils: NetworkUtils = NetworkUtils()
     private var isSwipe = false

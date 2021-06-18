@@ -20,6 +20,7 @@ class MainActivity : AppCompatActivity() {
     }
 
 
+
     /**
      * function for replace fragment
      * ****/
