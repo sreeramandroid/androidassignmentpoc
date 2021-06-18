@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.annotation.VisibleForTesting
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
@@ -20,7 +21,9 @@ import kotlinx.android.synthetic.main.fragment_livedata.*
 
 class LiveDataFragment : Fragment() {
 
-    private lateinit var viewModel: HomeViewModel
+    @VisibleForTesting(otherwise = VisibleForTesting.PRIVATE)
+    var viewModel: HomeViewModel=ViewModelProvider(this).get(HomeViewModel::class.java)
+
     var networkUtils: NetworkUtils = NetworkUtils()
     private var isSwipe = false
 
@@ -66,6 +69,7 @@ class LiveDataFragment : Fragment() {
     /**
      * function to refresh data after swipe
      * ****/
+    @VisibleForTesting
     fun refreshList() {
         swipeToRefresh?.setOnRefreshListener {
             isSwipe = true
@@ -99,7 +103,8 @@ class LiveDataFragment : Fragment() {
     /**
      * function to display progress
      * ***/
-     fun displayProgress() {
+    @VisibleForTesting
+    fun displayProgress() {
         if (!networkUtils.isOnline(requireContext())) {
             loadingprogress.visibility = View.GONE
         }
@@ -108,7 +113,8 @@ class LiveDataFragment : Fragment() {
     /**
      *function to display no data
      * ***/
-     fun visibleNodataText() {
+    @VisibleForTesting
+    fun visibleNodataText() {
         viewModel.countryResponseData.observe(viewLifecycleOwner, {
             it?.let { data ->
                 if (data.isEmpty()) {
